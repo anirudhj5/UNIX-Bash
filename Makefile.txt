@@ -1,0 +1,13 @@
+all: pseudo-shell
+
+pseudo-shell: main.o command.o
+	gcc -g -Wall -o pseudo-shell main.o command.o
+
+main.o: main.c
+	gcc -g -c main.c
+
+command.o: command.c command.h
+	gcc -g -c command.c
+
+clean:
+	rm -f core *.o main
